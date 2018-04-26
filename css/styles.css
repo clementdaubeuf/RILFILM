@@ -108,6 +108,14 @@ a {
   height: 380px;
   margin-bottom: 15px; }
 
+#tri > input[type="button"] {
+  padding: 10px 10px 10px 8px;
+  margin-left: 5px;
+  color: white;
+  background-color: #0F2347;
+  border: 2px solid #0F2347;
+  cursor: pointer; }
+
 /* Début pied de page */
 footer {
   background-color: #294CA3; }

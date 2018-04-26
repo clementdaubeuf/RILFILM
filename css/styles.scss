@@ -137,6 +137,15 @@ a {
 	margin-bottom: 15px; 
 }
 
+#tri > input[type="button"] {
+	padding:10px 10px 10px 8px;
+	margin-left : 5px;
+	color: white; 
+	background-color: $blue_link;
+	border: 2px solid $blue_link;
+	cursor: pointer;
+}
+
 /* Début pied de page */
 footer {
 	background-color: $blue_footer;
