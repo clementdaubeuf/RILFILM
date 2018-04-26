@@ -46,6 +46,10 @@ header > h1 {
 	padding: 10px;
 }
 
+header > h1 > a {
+	color: white;
+}
+
 header > nav > a {
 	color: white;
 	width:150px;
@@ -60,6 +64,7 @@ header > nav > a:hover {
 header > nav > form {
 	float: right;
 	margin-right: 10px;
+	background-color: #163584;
 }
 
 header > nav > form > input[type="text"] {
@@ -74,7 +79,7 @@ header > nav > form > input[type="text"] {
 
 header > nav > form > button[type="submit"] {
 	border-radius: 0 50% 50% 0;
-	margin:0 0 0 -4px;
+	margin:0 0 0 -5px;
 	padding:6px 6px 6px 4px;
 	color: white; 
 	background-color: #0F2347;
@@ -133,15 +138,44 @@ footer > p {
 @media (max-width: 767px) {
 	h1 {
 		font-size: 50px;
+		padding: 0;
+		position: fixed;
+		background-color: #163584;
+		width: 100%;
+		z-index: 1000;
 	}
 
 	h2 {
+		margin-top: 55px;
+		margin-bottom: 0px;
 		text-align:center;
 		font-size: 25px;
 	}
 
+	header > nav {
+		padding-top:65px;
+	}
+
 	header > nav > a {
 		width: 100%;
+	}
+
+	header > nav > a:first-child {
+		visibility: hidden;
+		height: 0px;
+		margin:0;
+		padding:0;
+	}
+
+	header > nav > form {
+		background-color: #163584;
+		width:100%;
+		margin:0;
+		text-align: center;
+	}
+
+	header > nav > form > input {
+		margin-bottom: 10px;
 	}
 	
 }

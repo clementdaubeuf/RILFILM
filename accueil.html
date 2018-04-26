@@ -13,15 +13,15 @@
 	</head>
 	<body>
 		<header>
-		    <h1>Ril Films</h1>
+		    <h1><a href="accueil.html">Ril Films</a></h1>
 		    <nav>
-			    <a class="active" href="#">Accueil</a>
+			    <a class="active" href="accueil.html">Accueil</a>
 			    <a href="#">Liste des films</a>
 			    <form id="FormRecherche" action="#">
 			      <input id="Recherche" type="text" placeholder="Recherche ..." name="recherche">
 			      <button type="submit"><i class="fa fa-search"></i></button>
 			    </form>
-	    	</nav>
+			</nav>
 		</header>
 		<section id="mur">
 			<h2 id="titre">Nouveautés</h2>
@@ -40,9 +40,9 @@
 						$.ajax(settings).done(function(response) {
 							$.each(response.results, (index, film) => {
 								if (film.poster_path) {
-									affiche = affiche + ('<p class="affiche"><img src="https://image.tmdb.org/t/p/w500/' + film.poster_path + '" alt="' + film.original_title + '"><br/>' + film.title + '</p>');
+									affiche = affiche + ('<p class="affiche"><a onclick="movieSelected(\'${film.id}\')" href="#"><img src="https://image.tmdb.org/t/p/w500/' + film.poster_path + '" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
 								} else {
-									affiche = affiche + ('<p class="affiche"><img src="img/no_image.png" alt="' + film.original_title + '"><br/>' + film.title + '</p>');
+									affiche = affiche + ('<p class="affiche"><a onclick="movieSelected(\'${film.id}\')" href="#"><img src="img/no_image.png" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
 									document.getElementById("mur_film").innerHTML = affiche;
 								}
 								document.getElementById("mur_film").innerHTML = affiche;
