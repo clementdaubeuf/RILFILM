@@ -8,7 +8,36 @@
 		<link rel="stylesheet" href="css/styles.css">
 		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 		<scriptsrc="js/javascript.js"></script>
-
+		<script>
+			function trier(id)
+			{
+				var $choixtri = document.getElementById(id).name;
+				var $tri="";
+				switch($choixtri) 
+				{
+				    case "Tri_NameASC":
+				        $tri="&sort_by=title.asc"
+				        break;
+				    case "Tri_NameDESC":
+				        $tri="&sort_by=title.desc"
+				        break;
+				    case "Tri_Genre":
+				        $tri="&sort_by=genre"
+				        break;
+				    case "Tri_NoteASC":
+				        $tri="&sort_by=rating.asc"
+				        break;
+				    case "Tri_NoteDESC":
+				        $tri="&sort_by=rating.desc"
+				        break;
+				    case "Tri_DateASC":
+				        $tri="&sort_by=release_date.asc"
+				        break;
+				    case "Tri_DateDESC":
+				        $tri="&sort_by=release_date.desc"
+				}
+				affichagefilm($tri);
+			}
 		</script>
 	</head>
 	<body>
@@ -18,7 +47,7 @@
 			    <a class="active" href="accueil.html">Accueil</a>
 			    <a href="liste.html">Liste des films</a>
 			    <a href="#">Contact</a>
-			    <form id="FormRecherche" action="#">
+			    <form id="FormRecherche" name="formrecherche" action="#">
 			      <input id="Recherche" type="text" placeholder="Recherche ..." name="recherche">
 			      <button type="submit"><i class="fa fa-search"></i></button>
 			    </form>
@@ -26,29 +55,44 @@
 		</header>
 		<section id="mur">
 			<h2 id="titre">Découvertes</h2>
+			<section id="tri">
+				<h3>Trier par</h3>
+				<input type="button" id="Tri_NameASC" name="Tri_NameASC" value="Nom (A-Z)" onclick="trier(id)"/>
+				<input type="button" id="Tri_NameDESC" name="Tri_NameDESC" value="Nom (Z-A)" onclick="trier(id)"/>
+				<input type="button" id="Tri_Genre" name="Tri_Genre" value="Genre" onclick="trier(id)"/>
+				<input type="button" id="Tri_NoteASC" name="Tri_NoteASC" value="Note croissante" onclick="trier(id)"/>
+				<input type="button" id="Tri_NoteDESC" name="Tri_NoteDESC" value="Note décroissante" onclick="trier(id)"/>
+				<input type="button" id="Tri_DateASC" name="Tri_DateASC" value="Date croissante" onclick="trier(id)"/>
+				<input type="button" id="Tri_DateDESC" name="Tri_DateDESC" value="Date décroissante" onclick="trier(id)"/>
+			</section>
 			<section id="mur_film">
 				<script type="text/javascript">
-					affiche = "";
+					function affichagefilm($tri)
+					{
+						affiche = "";
 						var settings = {
-							"async": true,
-							"crossDomain": true,
-							"url": "https://api.themoviedb.org/3/discover/movie?api_key=bc2aec4e7428ce69a684f62d618e55f4&primary_release_date.gte=2018-01-01&primary_release_date.lte=2018-04-26&sort_by=release_date",
-							"method": "GET",
-							"headers": {},
-							"data": "{}"
-						};
-
-						$.ajax(settings).done(function(response) {
-							$.each(response.results, (index, film) => {
-								if (film.poster_path) {
-									affiche = affiche + ('<p class="affiche"><img src="https://image.tmdb.org/t/p/w500/' + film.poster_path + '" alt="' + film.original_title + '"><br/>' + film.title + '</p>');
-								} else {
-									affiche = affiche + ('<p class="affiche"><img src="img/no_image.png" alt="' + film.original_title + '"><br/>' + film.title + '</p>');
-									document.getElementById("mur_film").innerHTML = affiche;
-								}
+						"async": true,
+						"crossDomain": true,
+						"url": "https://api.themoviedb.org/3/discover/movie?api_key=bc2aec4e7428ce69a684f62d618e55f4&primary_release_date.gte=2018-01-01&primary_release_date.lte=2018-04-26"+$tri,
+						"method": "GET",
+						"headers": {},
+						"data": "{}"
+					};
+					console.log("https://api.themoviedb.org/3/discover/movie?api_key=bc2aec4e7428ce69a684f62d618e55f4&primary_release_date.gte=2018-01-01&primary_release_date.lte=2018-04-26"+$tri);
+					$.ajax(settings).done(function(response) {
+						$.each(response.results, (index, film) => {
+							if (film.poster_path) {
+								affiche = affiche + ('<p class="affiche"><a onclick="movieSelected(' + film.id + ')" href="#"><img src="https://image.tmdb.org/t/p/w500/' + film.poster_path + '" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
+							} else {
+								affiche = affiche + ('<p class="affiche"><a onclick="movieSelected(' + film.id + ')" href="#"><img src="img/no_image.png" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
 								document.getElementById("mur_film").innerHTML = affiche;
-							});
+							}
+							document.getElementById("mur_film").innerHTML = affiche;
 						});
+					});
+					};
+					var $tri="";
+					affichagefilm($tri);
 				</script>
 			</section>
 		</section>
