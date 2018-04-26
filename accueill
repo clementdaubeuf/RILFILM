@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RIL FILMS</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js/javascript.js"></script>
+
+		</script>
+	</head>
+	<body>
+		<header>
+		    <h1><a href="accueil.html">Ril Films</a></h1>
+		    <nav>
+			    <a class="active" href="accueil.html">Accueil</a>
+			    <a href="#">Liste des films</a>
+			    <form id="FormRecherche" action="#">
+			      <input id="Recherche" type="text" placeholder="Recherche ..." name="recherche">
+			      <button type="submit"><i class="fa fa-search"></i></button>
+			    </form>
+			</nav>
+		</header>
+		<section id="mur">
+			<h2 id="titre">Nouveautés</h2>
+			<section id="mur_film">
+				<script type="text/javascript">
+					affiche = "";
+						var settings = {
+							"async": true,
+							"crossDomain": true,
+							"url": "https://api.themoviedb.org/3/discover/movie?api_key=bc2aec4e7428ce69a684f62d618e55f4&primary_release_date.gte=2018-01-01&primary_release_date.lte=2018-04-26&sort_by=release_date",
+							"method": "GET",
+							"headers": {},
+							"data": "{}"
+						};
+
+						$.ajax(settings).done(function(response) {
+							$.each(response.results, (index, film) => {
+								if (film.poster_path) {
+									affiche = affiche + ('<p class="affiche"><a onclick="movieSelected('+film.id+')" href="#"><img src="https://image.tmdb.org/t/p/w500/' + film.poster_path + '" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
+								} else {
+									affiche = affiche + ('<p class="affiche"><a onclick="movieSelected('+film.id+')" href="#"><img src="img/no_image.png" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
+									document.getElementById("mur_film").innerHTML = affiche;
+								}
+								document.getElementById("mur_film").innerHTML = affiche;
+							});
+						});
+				</script>
+			</section>
+		</section>
+		<section id="film">
+
+		</section>
+		<footer>
+			<p>Informations légales</p>
+		</footer>
+	</body>
+</html>
