@@ -1,7 +1,19 @@
+@font-face {
+	font-family:"Caribbean Island";
+	src:url("../fonts/Caribbean_Island.eot?") format("eot"),
+	    url("../fonts/Caribbean_Island.woff") format("woff"),
+	    url("../fonts/Caribbean_Island.ttf") format("truetype"),
+	    url("../fonts/Caribbean_Island.svg#CarribeanIsland") format("svg");
+	font-weight:normal;
+	font-style:normal;
+}
+
+
 html {
 	background-image: url(../img/fond.jpg);
 	background-color: black;
 	background-repeat: no-repeat;
+	font-family: "Comic Sans MS";
 }
 
 body {
@@ -9,6 +21,16 @@ body {
 	padding: 0;
 	background-color: rgba(0, 0, 0, 0.2);
 	color: white;
+}
+
+h1 {
+	font-size: 100px;
+	font-family:"Caribbean Island";
+}
+
+h2 {
+	font-size: 50px;
+	font-family:"Caribbean Island";
 }
 
 /* Début en-tête */
@@ -20,15 +42,15 @@ header {
 
 header > h1 {
 	text-align: center;
-	font-size: 50px;
 	margin:0;
 	padding: 10px;
 }
 
 header > nav > a {
 	color: white;
-	width:100px;
+	width:150px;
 	text-align: center;
+	height:30px;
 }
 
 header > nav > a:hover {
@@ -36,10 +58,28 @@ header > nav > a:hover {
 }
 
 header > nav > form {
-	display: inline-block;
 	float: right;
-	margin-right: 5px;
+	margin-right: 10px;
 }
+
+header > nav > form > input[type="text"] {
+	background-color: #0F2347;
+	color:white;
+	border-radius: 15px 0 0 15px;
+	border: 2px solid #0F2347;
+	padding: 2px 0 2px 10px;
+	width: 250px;
+	height:25px;
+}
+
+header > nav > form > button[type="submit"] {
+	border-radius: 0 50% 50% 0;
+	margin:0 0 0 -4px;
+	padding:6px 6px 6px 4px;
+	color: white; 
+	background-color: #0F2347;
+	border: 2px solid #0F2347;
+	cursor: pointer;}
 /* Fin en-tête */
 
 a {
