@@ -50,17 +50,23 @@ a {
 }
 
 #mur {
-	width:1700px;
+	max-width:1700px;
 	margin: auto;
 }
 
 #mur_film {
 	display: grid;
-	grid-template-columns: repeat(6, 16.6%);
+	grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+	grid-template-rows: auto;
 }
 
 .affiche {
+	text-align : center;
+}
+
+.affiche > img {
 	width: 95%;
+	height: 380px;
 	margin-bottom: 15px; 
 }
 
