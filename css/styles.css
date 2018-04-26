@@ -90,6 +90,11 @@ a {
   width: 25%;
   vertical-align: top; }
 
+#film > article > a {
+  color: white;
+  text-decoration: none;
+  background-color: #0F2347; }
+
 .affiche {
   text-align: center; }
 

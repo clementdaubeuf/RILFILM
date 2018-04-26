@@ -114,6 +114,13 @@ a {
 	vertical-align: top;
 }
 
+
+#film > article > a {
+	color: white;
+	text-decoration: none;
+	background-color: $blue_link;
+}
+
 .affiche {
 	text-align : center;
 }
