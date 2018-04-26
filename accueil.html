@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RIL FILMS</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js/javascript.js"></script>
+
+		</script>
+	</head>
+	<body>
+		<header>
+		    <h1><a href="accueil.html">Ril Films</a></h1>
+		    <nav>
+			    <a href="accueil.html">Accueil</a>
+			    <a href="liste.html">Liste des films</a>
+			    <form id="FormRecherche" action="#">
+			      <input id="Recherche" type="text" placeholder="Recherche ..." name="recherche">
+			      <button type="submit"><i class="fa fa-search"></i></button>
+			    </form>
+			</nav>
+		</header>
+		<section id="mur">
+			<h2 id="titre">Nouveautés</h2>
+			<section id="mur_film">
+				<script type="text/javascript">
+					getMur();
+				</script>
+			</section>
+		</section>
+		<section id="film">
+
+		</section>
+		<footer>
+			<p>Informations légales</p>
+		</footer>
+	</body>
+</html>

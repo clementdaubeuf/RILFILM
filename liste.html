@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RIL FILMS</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="js/javascript.js"></script>
+		<script>
+			function trier(id)
+			{
+				var $choixtri = document.getElementById(id).name;
+				var $tri="";
+				switch($choixtri) 
+				{
+				    case "Tri_NameASC":
+				        $tri="&sort_by=title.asc"
+				        break;
+				    case "Tri_NameDESC":
+				        $tri="&sort_by=title.desc"
+				        break;
+				    case "Tri_Genre":
+				        $tri="&sort_by=genre"
+				        break;
+				    case "Tri_NoteASC":
+				        $tri="&sort_by=rating.asc"
+				        break;
+				    case "Tri_NoteDESC":
+				        $tri="&sort_by=rating.desc"
+				        break;
+				    case "Tri_DateASC":
+				        $tri="&sort_by=release_date.asc"
+				        break;
+				    case "Tri_DateDESC":
+				        $tri="&sort_by=release_date.desc"
+				}
+				affichagefilm($tri);
+			}
+		</script>
+	</head>
+	<body>
+		<header>
+		    <h1><a href="accueil.html">Ril Films</a></h1>
+		    <nav>
+			    <a href="accueil.html">Accueil</a>
+			    <a href="liste.html">Liste des films</a>
+			    <form id="FormRecherche" name="formrecherche" action="#">
+			      <input id="Recherche" type="text" placeholder="Recherche ..." name="recherche">
+			      <button type="submit"><i class="fa fa-search"></i></button>
+			    </form>
+	    	</nav>
+		</header>
+		<section id="mur">
+			<h2 id="titre">Découvertes</h2>
+			<section id="tri">
+				<h3>Trier par</h3>
+				<input type="button" id="Tri_NameASC" name="Tri_NameASC" value="Nom (A-Z)" onclick="trier(id)"/>
+				<input type="button" id="Tri_NameDESC" name="Tri_NameDESC" value="Nom (Z-A)" onclick="trier(id)"/>
+				<input type="button" id="Tri_Genre" name="Tri_Genre" value="Genre" onclick="trier(id)"/>
+				<input type="button" id="Tri_NoteASC" name="Tri_NoteASC" value="Note croissante" onclick="trier(id)"/>
+				<input type="button" id="Tri_NoteDESC" name="Tri_NoteDESC" value="Note décroissante" onclick="trier(id)"/>
+				<input type="button" id="Tri_DateASC" name="Tri_DateASC" value="Date croissante" onclick="trier(id)"/>
+				<input type="button" id="Tri_DateDESC" name="Tri_DateDESC" value="Date décroissante" onclick="trier(id)"/>
+			</section>
+			<section id="mur_film">
+				<script type="text/javascript">
+					var $tri="";
+					affichagefilm($tri);
+				</script>
+			</section>
+		</section>
+		<footer>
+			<p>Informations légales</p>
+		</footer>
+	</body>
+</html>
