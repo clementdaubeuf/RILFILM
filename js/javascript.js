@@ -7,6 +7,31 @@ $(document).ready(() => {
   });
 });
 
+          function affichagefilm($tri)
+          {
+            affiche = "";
+            var settings = {
+            "async": true,
+            "crossDomain": true,
+            "url": "https://api.themoviedb.org/3/discover/movie?api_key=bc2aec4e7428ce69a684f62d618e55f4&primary_release_date.gte=2018-01-01&primary_release_date.lte=2018-04-26"+$tri,
+            "method": "GET",
+            "headers": {},
+            "data": "{}"
+          };
+          console.log("https://api.themoviedb.org/3/discover/movie?api_key=bc2aec4e7428ce69a684f62d618e55f4&primary_release_date.gte=2018-01-01&primary_release_date.lte=2018-04-26"+$tri);
+          $.ajax(settings).done(function(response) {
+            $.each(response.results, (index, film) => {
+              if (film.poster_path) {
+                affiche = affiche + ('<p class="affiche"><a onclick="movieSelected(' + film.id + ')" href="#"><img src="https://image.tmdb.org/t/p/w500/' + film.poster_path + '" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
+              } else {
+                affiche = affiche + ('<p class="affiche"><a onclick="movieSelected(' + film.id + ')" href="#"><img src="img/no_image.png" alt="' + film.original_title + '"></a><br/>' + film.title + '</p>');
+                document.getElementById("mur_film").innerHTML = affiche;
+              }
+              document.getElementById("mur_film").innerHTML = affiche;
+            });
+          });
+          };
+
 function getMur() {
   affiche = "";
   var settings = {
