@@ -110,6 +110,12 @@ a {
 	margin-bottom: 15px; 
 }
 
+.affiche > a > img {
+	width: 95%;
+	height: 380px;
+	margin-bottom: 15px; 
+}
+
 /* Début pied de page */
 footer {
 	background-color: #294CA3;
@@ -123,3 +129,19 @@ footer > p {
 	padding: 10px;
 }
 /* Fin pied de page */
+
+@media (max-width: 767px) {
+	h1 {
+		font-size: 50px;
+	}
+
+	h2 {
+		text-align:center;
+		font-size: 25px;
+	}
+
+	header > nav > a {
+		width: 100%;
+	}
+	
+}

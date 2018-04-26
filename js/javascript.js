@@ -25,16 +25,11 @@ function getFilms($recherche) {
             var rendu = '';
             $.each(films, (index, film) => {
               rendu+=`
-                <div>
-                  <div>
-                    <img src="https://image.tmdb.org/t/p/w500${film.poster_path}">
-                    <h5>${film.title}</h5>
-                    <a onclick="movieSelected('${film.id}')" class="" href="#">Movie Details</a>
-                  </div>
-                </div>
+                    <p class="affiche"><a onclick="movieSelected('${film.id}')" href="#"><img src="https://image.tmdb.org/t/p/w500${film.poster_path}"></a>
+                    <br/>${film.title}</p>
               `;
             });
-            $('#film').html(rendu);
+            $('#mur_film').html(rendu);
 
     });
 
