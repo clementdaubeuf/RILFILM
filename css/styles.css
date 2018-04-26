@@ -1,0 +1,79 @@
+html {
+	background-image: url(../img/fond.jpg);
+	background-color: black;
+	background-repeat: no-repeat;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: rgba(0, 0, 0, 0.2);
+	color: white;
+}
+
+/* Début en-tête */
+header {
+	background-color: #163584;
+	color: white;
+	margin: 0;
+}
+
+header > h1 {
+	text-align: center;
+	font-size: 50px;
+	margin:0;
+	padding: 10px;
+}
+
+header > nav > a {
+	color: white;
+	width:100px;
+	text-align: center;
+}
+
+header > nav > a:hover {
+	background-color: #0F2347;
+}
+
+header > nav > form {
+	display: inline-block;
+	float: right;
+	margin-right: 5px;
+}
+/* Fin en-tête */
+
+a {
+	color: #0F2347;
+	display: inline-block;
+	padding: 5px;
+	text-decoration: none;
+}
+
+#mur {
+	width:1700px;
+	margin: auto;
+}
+
+#mur_film {
+	display: grid;
+	grid-template-columns: repeat(6, 16.6%);
+}
+
+.affiche {
+	width: 95%;
+	margin-bottom: 15px; 
+}
+
+/* Début pied de page */
+footer {
+	background-color: #294CA3;
+}
+
+footer > p {
+	margin:0;
+	font-style: italic;
+	color: white;
+	text-align: center;
+	padding: 10px;
+}
+/* Fin pied de page */

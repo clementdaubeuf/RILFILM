@@ -1,27 +1,64 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RIL FILMS</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  </head>
-  <header>
-    <h1>RIL FILMS</h1>
-    <nav>
-      <a class="active" href="#">Accueil</a>
-      <a href="#">Liste des films</a>
-        <form action="#">
-          <input type="text" placeholder="Recherche ..." name="recherche">
-          <button type="submit"><i class="fa fa-search"></i> RECHERCHER</button>
-        </form>
-    </nav>
-  </header>
-  <body>
-    <h1>Nouveautés</h1>
-    <img src="https://image.tmdb.org/t/p/w500//zu1BxIKlhTXXIATPINnzg2rwy97.jpg" alt="">
-  </body>
-  <footer>
-    <p>Informations légales</p>
-  </footer>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>RIL FILMS</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="css/styles.css">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<header>
+		    <h1>RIL FILMS</h1>
+		    <nav>
+			    <a class="active" href="#">Accueil</a>
+			    <a href="#">Liste des films</a>
+			    <form action="#">
+			      <input type="text" placeholder="Recherche ..." name="recherche">
+			      <button type="submit"><i class="fa fa-search"></i> RECHERCHER</button>
+			    </form>
+	    	</nav>
+		</header>
+		<section id="mur">
+			<h2>Nouveautés</h2>
+			<section id="mur_film">
+				<script type="text/javascript">
+					i = 1;
+					j = 1;
+					affiche = "";
+
+					while (j < 24) {
+						var settings = {
+							"async": true,
+							"crossDomain": true,
+							"url": "https://api.themoviedb.org/3/movie/" + i + "?api_key=bc2aec4e7428ce69a684f62d618e55f4&language=fr",
+							"method": "GET",
+							"headers": {},
+							"data": "{}"
+						};
+
+						$.ajax(settings).done(function(response) {
+							console.log(response);
+							if(response) {
+								if (response.poster_path) {
+									affiche = affiche + ('<img class="affiche" src="https://image.tmdb.org/t/p/w500/' + response.poster_path + '" alt="">');
+									document.getElementById("mur_film").innerHTML = affiche;
+								} else {
+									affiche = affiche + ('<img class="affiche" src="https://image.tmdb.org/t/p/w500/' + response.poster_path + '" alt="Aucune image pour se film">');
+									document.getElementById("mur_film").innerHTML = affiche;
+								};			
+							};
+						});
+						j = j + 1;
+						i = i + 1;
+						console.log(i);
+					};
+				</script>
+			</section>
+		</section>
+		<footer>
+			<p>Informations légales</p>
+		</footer>
+	</body>
 </html>
